@@ -1,0 +1,46 @@
+<h1>Quotations</h1>
+
+<%= link_to 'Import Quotations', import_quotations_path, method: :post, class: 'btn btn-primary' %>
+
+
+<!-- Search Form -->
+<div>
+  <%= form_with url: quotations_path, method: :get, local: true do %>
+    <%= label_tag :query, "Search for:" %>
+    <%= text_field_tag :query, params[:query], placeholder: "Enter a word..." %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
+</div>
+
+<!-- Quotations Table -->
+<table>
+  <thead>
+  <tr>
+    <th>Author Name</th>
+    <th>Quote</th>
+    <th>Category</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @quotations.each do |quotation| %>
+    <tr>
+      <td><%= quotation.author_name %></td>
+      <td><%= quotation.quote %></td>
+      <td><%= quotation.category.name %></td>
+      <td>
+        <%= button_to 'Kill', kill_quotation_path(quotation), method: :post, class: 'btn btn-danger' %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<!-- Erase Personalization -->
+<% if cookies[:killed_quotations].present? %>
+  <%= link_to 'Erase my personalization', erase_personalization_quotations_path, method: :delete, class: 'btn btn-warning' %>
+<% end %>
+
+<div>
+  <%= link_to 'New Quotation', new_quotation_path, class: 'btn btn-primary' %>
+</div>

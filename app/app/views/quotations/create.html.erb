@@ -1,0 +1,40 @@
+<%= form_with(model: quotation, local: true) do |form| %>
+  <% if quotation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(quotation.errors.count, "error") %> prohibited this quotation from being saved:</h2>
+
+      <ul>
+        <% quotation.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :author_name %>
+    <%= form.text_field :author_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :quote %>
+    <%= form.text_area :quote %>
+  </div>
+
+  <div class="field">
+    <%= form.label :category %>
+
+    <!-- Existing Categories Dropdown -->
+    <%= form.collection_select :category_id, Category.distinct.pluck(:id, :name), :first, :second, { prompt: "Select an existing category" } %>
+
+    <br>
+
+    <!-- New Category Text Field -->
+    <%= form.label :new_category, "New Category" %>
+    <%= form.text_field :new_category %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
