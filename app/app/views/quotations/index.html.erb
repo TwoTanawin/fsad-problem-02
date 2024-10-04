@@ -1,46 +1,75 @@
 <h1>Quotations</h1>
 
-<%= link_to 'Import Quotations', import_quotations_path, method: :post, class: 'btn btn-primary' %>
+<!-- Flash message section -->
+<% if flash[:notice] %>
+  <div class="alert alert-success">
+    <%= flash[:notice] %>
+  </div>
+<% elsif flash[:alert] %>
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
 
+<!-- Personalization section -->
+<% if cookies[:killed_quotations].present? %>
+  <div class="personalization-info">
+    <p>You have personalized your quotation view.</p>
+    <%= button_to "Erase my personalization", 
+                  erase_personalization_quotations_path,
+                  method: :delete,
+                  class: "btn btn-warning",
+                  data: { confirm: "Are you sure? This will restore all previously hidden quotations." } %>
+  </div>
+<% end %>
 
-<!-- Search Form -->
-<div>
-  <%= form_with url: quotations_path, method: :get, local: true do %>
-    <%= label_tag :query, "Search for:" %>
-    <%= text_field_tag :query, params[:query], placeholder: "Enter a word..." %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
-  <% end %>
-</div>
+<!-- Import form -->
+<%= form_with url: import_quotations_path, method: :get, local: true do |form| %>
+  <%= form.label :import_url, "Import URL:" %>
+  <%= form.text_field :import_url, placeholder: "Enter URL to import quotations", class: "form-control" %>
+  <%= form.submit "Import", class: "btn btn-primary" %>
+<% end %>
 
-<!-- Quotations Table -->
+<!-- Search form -->
+<%= form_with url: quotations_path, method: :get, local: true do |f| %>
+  <%= f.label :query, "Search for:" %>
+  <%= f.text_field :query, placeholder: "Enter a word...", class: "form-control" %>
+  <%= f.submit "Search", class: "btn btn-secondary" %>
+<% end %>
+
+<!-- Table of quotations -->
 <table>
   <thead>
-  <tr>
-    <th>Author Name</th>
-    <th>Quote</th>
-    <th>Category</th>
-    <th>Actions</th>
-  </tr>
+    <tr>
+      <th>Author Name</th>
+      <th>Quote</th>
+      <th>Category</th>
+      <th>Actions</th>
+    </tr>
   </thead>
   <tbody>
-  <% @quotations.each do |quotation| %>
-    <tr>
-      <td><%= quotation.author_name %></td>
-      <td><%= quotation.quote %></td>
-      <td><%= quotation.category.name %></td>
-      <td>
-        <%= button_to 'Kill', kill_quotation_path(quotation), method: :post, class: 'btn btn-danger' %>
-      </td>
-    </tr>
-  <% end %>
+    <% @quotations.each do |quotation| %>
+      <tr>
+        <td><%= quotation.author_name %></td>
+        <td><%= quotation.quote %></td>
+        <td><%= quotation.category.name %></td>
+          <td>
+            <%= link_to "Kill", kill_quotation_path(quotation), 
+                        data: { 
+                          turbo_method: :post,
+                          turbo_confirm: "Are you sure you want to hide this quotation?"
+                        },
+                        class: "btn btn-danger" %>
+          </td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
 
-<!-- Erase Personalization -->
-<% if cookies[:killed_quotations].present? %>
-  <%= link_to 'Erase my personalization', erase_personalization_quotations_path, method: :delete, class: 'btn btn-warning' %>
-<% end %>
+<%= link_to "New Quotation", new_quotation_path, class: "btn btn-success" %>
 
-<div>
-  <%= link_to 'New Quotation', new_quotation_path, class: 'btn btn-primary' %>
+<br />
+<div class="export-buttons">
+  <%= button_to 'Export as JSON', quotations_path(format: :json), method: :get, class: 'btn btn-primary' %>
+  <%= button_to 'Export as XML', quotations_path(format: :xml), method: :get, class: 'btn btn-secondary' %>
 </div>

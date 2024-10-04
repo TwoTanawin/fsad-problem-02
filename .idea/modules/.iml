@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="RUBY_MODULE" version="4">
+  <component name="ModuleRunConfigurationManager">
+    <shared />
+  </component>
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$/../../.ruby-lsp">
+      <sourceFolder url="file://$MODULE_DIR$/../../.ruby-lsp/features" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../.ruby-lsp/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../.ruby-lsp/test" isTestSource="true" />
+    </content>
+    <orderEntry type="jdk" jdkName="rbenv: 3.3.4" jdkType="RUBY_SDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="PROVIDED" name="bundler (v2.5.19, rbenv: 3.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="debug (v1.9.2, rbenv: 3.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="io-console (v0.7.2, rbenv: 3.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="irb (v1.14.1, rbenv: 3.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="language_server-protocol (v3.17.0.3, rbenv: 3.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="logger (v1.6.1, rbenv: 3.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="prism (v1.1.0, rbenv: 3.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="psych (v5.1.2, rbenv: 3.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rbs (v3.6.0, rbenv: 3.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rdoc (v6.7.0, rbenv: 3.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="reline (v0.5.10, rbenv: 3.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="ruby-lsp (v0.19.0, rbenv: 3.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="sorbet-runtime (v0.5.11589, rbenv: 3.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="stringio (v3.1.1, rbenv: 3.3.4) [gem]" level="application" />
+  </component>
+  <component name="RubyModuleProperties">
+    <option name="autoCreated" value="true" />
+  </component>
+</module>

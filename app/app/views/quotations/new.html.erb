@@ -25,13 +25,15 @@
     <%= form.label :category %>
 
     <!-- Dropdown for existing categories -->
-    <%= form.collection_select :category_id, Category.distinct.pluck(:id, :name), :first, :second, { prompt: "Select an existing category" } %>
+    <%= form.collection_select :category_id, Category.distinct.pluck(:id, :name), :first, :second, 
+      { prompt: "Select an existing category" }, 
+      { disabled: @disable_existing_category } %>
 
     <br>
 
     <!-- New Category Text Field -->
     <%= form.label :new_category, "New Category" %>
-    <%= form.text_field :new_category %>
+    <%= form.text_field :new_category, disabled: @disable_new_category %>
   </div>
 
   <div class="actions">
@@ -41,9 +43,4 @@
   <div>
     <%= link_to 'Return to Index', quotations_path, class: 'btn btn-secondary' %>
   </div>
-
-
 <% end %>
-
-
-

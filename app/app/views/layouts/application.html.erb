@@ -1,23 +1,36 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= content_for(:title) || "Students" %></title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title><%= content_for(:title) || "App" %></title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= yield :head %>
+  <%= yield :head %>
 
-    <link rel="manifest" href="/manifest.json">
-    <link rel="icon" href="/icon.png" type="image/png">
-    <link rel="icon" href="/icon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/icon.png">
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" href="/icon.png" type="image/png">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/icon.png">
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<header>
+  <nav class="navbar">
+    <div class="container">
+      <h1 class="navbar-brand">FSAD Problem Set 1: Basics</h1>
+      <div class="nav-links">
+        <%= link_to 'Go to Quotations', quotations_index_path, class: 'nav-link btn-primary', title: 'Go to Quotations' %>
+        <%= link_to 'Go to SQL Task', sql_tasks_index_path, class: 'nav-link btn-primary', title: 'Go to SQL Task' %>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+<%= yield %>
+
+</body>
 </html>

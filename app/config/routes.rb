@@ -1,25 +1,23 @@
 Rails.application.routes.draw do
-  resources :quotations, only: [:new, :create, :index, :show] do
+  resources :quotations, only: [ :new, :create, :index, :show ] do
     member do
-      post 'kill', to: 'quotations#kill'
+      post "kill"
     end
     collection do
-      delete 'erase_personalization', to: 'quotations#erase_personalization'
-      post :import
+      delete "erase_personalization"
+    end
+    collection do
+      get "import"
+      post "import"
     end
   end
 
   resources :categories
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :pages
+  resources :sql_tasks
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
-  get "up" => "rails/health#show", as: :rails_health_check
-
-  # Render dynamic PWA files from app/views/pwa/*
-  get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
-  get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
-
-  # Defines the root path route ("/")
-  root "quotations#index"
+  root "pages#index"
+  # root "quotations#index"
+  get "quotations", to: "quotations#index", as: "quotations_index"
+  get "sql_tasks", to: "sql_tasks#index", as: "sql_tasks_index"
 end
