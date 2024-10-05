@@ -13,22 +13,27 @@
 
 <main>
 <!--  <p>This is the index page for the MainController.</p>-->
-  <p>Here you will find links to the solutions of Problem Set 1.</p>
+  <p>Here you will find links to the solutions of Problem Set 2.</p>
   <br/>
 
   <section class="problem-set-links">
 
     <!-- Add a link to the Google Doc for all task solutions -->
-    <p>You can also view the solutions for Task 1-3 in the following formats:</p>
+    <p>You can also view the solutions for Task 1-13 in the following formats:</p>
     <ul>
-      <li><a href="https://docs.google.com/document/d/1c9deITVWMb-_ZyPMuAHeBZsco1BrkbZy8FnnkwMn3H0/edit?usp=sharing" target="_blank">Google Doc Version</a></li>
-      <li><a href="https://drive.google.com/file/d/1nIVUFUV0aHyM91LXw_eNT1pBUCLQBXyv/view?usp=drive_link" target="_blank">PDF Version</a></li>
+      <li><a href="https://drive.google.com/drive/folders/12FJw4wWQLmpaPkz77Wt9I2IdyL4BSAP_?usp=drive_link" target="_blank">Solutions Doc</a></li>
     </ul>
   </section>
 </main>
 
+<div>
+        <%= link_to 'Go to Quotations', quotations_index_path, class: 'btn btn-goto', title: 'Go to Quotations' %>
+        <%= link_to 'Go to SQL Task', sql_tasks_index_path, class: 'btn btn-goto', title: 'Go to SQL Task' %>
+</div>
+
+
 <footer>
-  <p>&copy; 2024 Tanawin st123975 MMI. All Rights Reserved.</p>
+  <p>&copy; 2024 Tanawin st123975 MMI && Sagar R st124756 CS . All Rights Reserved.</p>
 </footer>
 </body>
 </html>

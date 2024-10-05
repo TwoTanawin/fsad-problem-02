@@ -27,8 +27,9 @@
 <%= form_with url: import_quotations_path, method: :get, local: true do |form| %>
   <%= form.label :import_url, "Import URL:" %>
   <%= form.text_field :import_url, placeholder: "Enter URL to import quotations", class: "form-control" %>
-  <%= form.submit "Import", class: "btn btn-primary" %>
+  <%= form.submit "Import", class: "btn btn-secondary" %>
 <% end %>
+<br />
 
 <!-- Search form -->
 <%= form_with url: quotations_path, method: :get, local: true do |f| %>
@@ -66,10 +67,19 @@
   </tbody>
 </table>
 
-<%= link_to "New Quotation", new_quotation_path, class: "btn btn-success" %>
-
+<br />
+<div>
+<%= link_to "New Quotation", new_quotation_path, class: 'btn btn-goto' %>
+<div/>
 <br />
 <div class="export-buttons">
-  <%= button_to 'Export as JSON', quotations_path(format: :json), method: :get, class: 'btn btn-primary' %>
+  <%= button_to 'Export as JSON', quotations_path(format: :json), method: :get, class: 'btn btn-secondary' %>
+  <br />
   <%= button_to 'Export as XML', quotations_path(format: :xml), method: :get, class: 'btn btn-secondary' %>
 </div>
+
+<br />
+<div>
+    <%= link_to 'Return to Main Page', root_path, class: 'btn btn-return' %>
+</div>
+

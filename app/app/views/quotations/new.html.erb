@@ -1,3 +1,4 @@
+<h2>Add Quotation<h2>
 <%= form_with(model: @quotation, local: true) do |form| %>
   <% if @quotation.errors.any? %>
     <div id="error_explanation">
@@ -39,8 +40,12 @@
   <div class="actions">
     <%= form.submit %>
   </div>
-
+  <br />
   <div>
-    <%= link_to 'Return to Index', quotations_path, class: 'btn btn-secondary' %>
+    <%= link_to 'Return to Quotation App', quotations_path, class: 'btn btn-secondary' %>
+  </div>
+  <br />
+  <div>
+    <%= link_to 'Return to Main Page', root_path, class: 'btn btn-return' %>
   </div>
 <% end %>

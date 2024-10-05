@@ -1,15 +1,165 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+/* Apply Arial font */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fafafa;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content {
+    flex: 1;
+}
+
+.navbar {
+    background-color: #6256CA;
+    color: #FDFAD9;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.nav-links {
+    display: flex;
+}
+
+.nav-link {
+    color: #FDFAD9;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 3px;
+    margin-left: 10px;
+    background-color: #86D293;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: Arial, sans-serif;
+    font-size: 1rem; /* Adjust font size for better readability on mobile */
+}
+
+.nav-link:hover {
+    background-color: #5a8d3f;
+    color: #fff;
+}
+
+.nav-link {
+    position: relative;
+    display: inline-block;
+}
+
+.nav-link::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 125%; /* Position above the link */
+    left: 50%;
+    margin-left: -60px; /* Center the tooltip */
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    width: 120px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+    font-size: 0.75rem;
+}
+
+.nav-link:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Mobile styles */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+        flex-direction: column;
+    }
+
+    .navbar .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .navbar-brand {
+        font-size: 1.25rem; /* Reduce font size for better fit on smaller screens */
+    }
+
+    .nav-links {
+        flex-direction: column;
+        margin-top: 10px;
+        align-items: center; /* Center align navigation links */
+    }
+
+    .nav-link {
+        margin: 5px 0;
+        padding: 10px 20px; /* Increase padding for better touch target size */
+        font-size: 1.1rem; /* Increase font size for mobile readability */
+    }
+
+    .btn, .btn-return, .btn-goto, .btn-danger {
+        font-size: 14px; /* Adjust button font size for mobile */
+        padding: 10px 20px; /* Increase button padding for better touchability */
+    }
+}
+
+/* Buttons */
+.btn {
+    background-color: #6256CA; /* Primary button color */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none; /* Remove underline from link */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-danger {
+    background-color: #D91656; /* Primary button color */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none; /* Remove underline from link */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-return {
+    background-color: #86D293; /* Primary button color */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none; /* Remove underline from link */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-goto {
+    background-color: #86D293; /* Primary button color */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none; /* Remove underline from link */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
